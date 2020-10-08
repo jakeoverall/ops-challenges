@@ -1,0 +1,20 @@
+
+----------------------PINGR_START----------------------
+[ATTEMPTING TO PING] 8.8.8.8
+ [2020-10-07 19:30:39.646550] ✅ Reply from 8.8.8.8, 9 bytes in 21.38ms
+
+Round Trip Times min/avg/max is 21.38/21.38/21.38 ms | 8.8.8.8
+ [2020-10-07 19:30:44.672133] ✅ Reply from 8.8.8.8, 9 bytes in 23.79ms
+
+Round Trip Times min/avg/max is 23.79/23.79/23.79 ms | 8.8.8.8
+----------------------PINGR_END----------------------
+
+----------------------PINGR_START----------------------
+[ATTEMPTING TO PING] 8.8.8.8
+ [2020-10-07 19:39:19.937626] ✅ Reply from 8.8.8.8, 9 bytes in 39.36ms
+
+Round Trip Times min/avg/max is 39.36/39.36/39.36 ms | 8.8.8.8
+ [2020-10-07 19:39:24.981521] ✅ Reply from 8.8.8.8, 9 bytes in 24.08ms
+
+Round Trip Times min/avg/max is 24.08/24.08/24.08 ms | 8.8.8.8
+----------------------PINGR_END----------------------

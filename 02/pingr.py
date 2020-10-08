@@ -15,7 +15,8 @@ from pythonping import ping
 from colors import colors
 
 loop = asyncio.get_event_loop()
-monitoring = {}
+future = asyncio.Future(loop=loop)
+monitoring = []
 
 
 def setup(device):
@@ -47,14 +48,14 @@ async def status_check(device):
 
 
 def add_device(device):
-    monitoring[device.address] = device
+    monitoring.append(device)
     setup(device)
 
 
 def start_monitoring():
-    for device in monitoring.values():
+    for device in monitoring:
         asyncio.ensure_future(status_check(device))
-    loop.run_forever()
+    loop.run_until_complete(future)
 
 
 def stop(device):
@@ -63,11 +64,10 @@ def stop(device):
     file = open(f"./logs/{device.address}-log.txt", "a")
     file.writelines(device.log)
     file.close()
-    del monitoring[device.address]
+    monitoring.remove(device)
 
 
 def stop_monitoring():
+    future.cancel()
     for device in monitoring:
         stop(device)
-
-    loop.close()
