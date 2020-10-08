@@ -25,13 +25,15 @@ def setup(args):
 
 
 def do_work(ip):
-    now = datetime.datetime.now()
     delay()
+    now = datetime.datetime.now()
     status = str(ping(ip, count=1, verbose=False, out=None))
+
     check = status.startswith("Reply") == True 
     color = colors.OKGREEN if check else colors.FAIL
-    emote = "✅" if check else "❌"
-    entry = f"[{now}] {emote} {status} | {ip}\n"
+    emote = "✅" if check else "❌" 
+
+    entry = f" [{now}] {emote} {status} | {ip}\n"
     print(f"{color} {entry}")
     log.append(entry)
 
