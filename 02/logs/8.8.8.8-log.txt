@@ -18,3 +18,13 @@ Round Trip Times min/avg/max is 39.36/39.36/39.36 ms | 8.8.8.8
 
 Round Trip Times min/avg/max is 24.08/24.08/24.08 ms | 8.8.8.8
 ----------------------PINGR_END----------------------
+
+----------------------PINGR_START----------------------
+[ATTEMPTING TO PING] 8.8.8.8
+ [2020-10-07 19:59:54.887982] ✅ Reply from 8.8.8.8, 9 bytes in 25.15ms
+
+Round Trip Times min/avg/max is 25.15/25.15/25.15 ms | 8.8.8.8
+ [2020-10-07 19:59:59.919587] ✅ Reply from 8.8.8.8, 9 bytes in 26.06ms
+
+Round Trip Times min/avg/max is 26.06/26.06/26.06 ms | 8.8.8.8
+----------------------PINGR_END----------------------
