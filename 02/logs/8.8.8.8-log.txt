@@ -28,3 +28,50 @@ Round Trip Times min/avg/max is 25.15/25.15/25.15 ms | 8.8.8.8
 
 Round Trip Times min/avg/max is 26.06/26.06/26.06 ms | 8.8.8.8
 ----------------------PINGR_END----------------------
+
+----------------------PINGR_START----------------------
+[ATTEMPTING TO PING] 8.8.8.8
+ [2020-10-08 10:38:39.010459] ✅ Reply from 8.8.8.8, 9 bytes in 20.78ms
+
+Round Trip Times min/avg/max is 20.78/20.78/20.78 ms | 8.8.8.8
+ [2020-10-08 10:38:44.039599] ✅ Reply from 8.8.8.8, 9 bytes in 24.79ms
+
+Round Trip Times min/avg/max is 24.79/24.79/24.79 ms | 8.8.8.8
+ [2020-10-08 10:38:49.622516] ✅ Reply from 8.8.8.8, 9 bytes in 30.03ms
+
+Round Trip Times min/avg/max is 30.03/30.03/30.03 ms | 8.8.8.8
+ [2020-10-08 10:38:54.656476] ✅ Reply from 8.8.8.8, 9 bytes in 27.28ms
+
+Round Trip Times min/avg/max is 27.28/27.28/27.28 ms | 8.8.8.8
+ [2020-10-08 10:38:59.686682] ✅ Reply from 8.8.8.8, 9 bytes in 25.31ms
+
+Round Trip Times min/avg/max is 25.31/25.31/25.31 ms | 8.8.8.8
+ [2020-10-08 10:39:04.714794] ✅ Reply from 8.8.8.8, 9 bytes in 30.7ms
+
+Round Trip Times min/avg/max is 30.7/30.7/30.7 ms | 8.8.8.8
+ [2020-10-08 10:39:09.749872] ✅ Reply from 8.8.8.8, 9 bytes in 31.17ms
+
+Round Trip Times min/avg/max is 31.17/31.17/31.17 ms | 8.8.8.8
+----------------------PINGR_END----------------------
+
+----------------------PINGR_START----------------------
+[ATTEMPTING TO PING] 8.8.8.8
+ [2020-10-08 17:08:31.890102] ✅ Reply from 8.8.8.8, 9 bytes in 30.96ms
+
+Round Trip Times min/avg/max is 30.96/30.96/30.96 ms | 8.8.8.8
+ [2020-10-08 17:08:36.938382] ✅ Reply from 8.8.8.8, 9 bytes in 34.65ms
+
+Round Trip Times min/avg/max is 34.65/34.65/34.65 ms | 8.8.8.8
+ [2020-10-08 17:08:42.554672] ✅ Reply from 8.8.8.8, 9 bytes in 29.32ms
+
+Round Trip Times min/avg/max is 29.32/29.32/29.32 ms | 8.8.8.8
+ [2020-10-08 17:08:47.586657] ✅ Reply from 8.8.8.8, 9 bytes in 33.65ms
+
+Round Trip Times min/avg/max is 33.65/33.65/33.65 ms | 8.8.8.8
+ [2020-10-08 17:08:52.623967] ✅ Reply from 8.8.8.8, 9 bytes in 27.39ms
+
+Round Trip Times min/avg/max is 27.39/27.39/27.39 ms | 8.8.8.8
+ [2020-10-08 17:08:57.653795] ✅ Reply from 8.8.8.8, 9 bytes in 22.73ms
+
+Round Trip Times min/avg/max is 22.73/22.73/22.73 ms | 8.8.8.8
+----------------------PINGR_END----------------------
