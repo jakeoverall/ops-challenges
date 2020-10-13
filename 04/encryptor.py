@@ -14,7 +14,7 @@ def encryptMessage():
     encrypted = writter.encrypt(message.encode())
     formatted = str(encrypted)[2:len(encrypted)-1]
     print(f"""
-HASH:
+CIPHER:
 -------------------------------------------
 {formatted}
 """)
