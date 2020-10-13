@@ -67,12 +67,12 @@ def encryptDirectory():
 def decryptDirectory():
     filePath = input("Please specify the file path: ")
     validatePath(filePath)
-    walkPath(filePath, encrypt_file)
+    walkPath(filePath, decrypt_file)
 
 
 def walkPath(path, fileAction):
     # Traverse directory tree
-    for (path, files) in os.walk(path):
+    for (path, dirs, files) in os.walk(path):
         # Repeat for each file in directory
         for file in files:
             fPath = os.path.join(path, file)
