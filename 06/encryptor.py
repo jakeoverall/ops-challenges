@@ -58,25 +58,25 @@ def decrypt_file(filePath):
         file.write(text)
 
 
-def encryptDirectory():
-    filePath = input("Please specify the file path: ")
+def encryptDirectory(filePath, extensions):
     validatePath(filePath)
-    walkPath(filePath, encrypt_file)
+    walkPath(filePath, encrypt_file, extensions)
 
 
-def decryptDirectory():
-    filePath = input("Please specify the file path: ")
+def decryptDirectory(filePath, extensions):
     validatePath(filePath)
-    walkPath(filePath, decrypt_file)
+    walkPath(filePath, decrypt_file, extensions)
 
 
-def walkPath(path, fileAction):
+def walkPath(path, fileAction, extensions=["txt"]):
     # Traverse directory tree
-    for (path, dirs, files) in os.walk(path):
+    for (path, dirs, files) in os.walk(path, topdown=True):
         # Repeat for each file in directory
         for file in files:
             fPath = os.path.join(path, file)
             if(file.endswith(".py")):
+                continue
+            if not file.split('.')[-1] in extensions:
                 continue
             print(f"[FILE] {fPath} [{file}]")
             fileAction(fPath)

@@ -14,10 +14,6 @@ Data Encryption
 import webbrowser
 webbrowser.open('http://net-informations.com', new=1)
 
-import ctypes
-ctypes.windll.user32.SystemParametersInfoW(20, 0, "absolute path" , 0) 
-
-# import the opencv library 
 import cv2 
 # define a video capture object 
 vid = cv2.VideoCapture(0) 
