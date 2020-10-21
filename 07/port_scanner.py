@@ -31,7 +31,9 @@ def start_discovery(host, low=20, high=80):
             ack = IP(dst=host)/TCP(sport=sport, dport=dport, flags="S")
             res = sr1(ack, timeout=1, verbose=0)
             message = f"HOST: {host} PORT: {dport} || "
-            if isRecieved(res):
+            if res == None:
+                continue
+            elif isRecieved(res):
                 message += "OPEN"
                 close_connection(host, sport, dport)
             elif isClosed(res):
