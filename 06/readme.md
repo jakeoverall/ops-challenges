@@ -1,4 +1,4 @@
-![haxed](../assets/haxed.png)
+![haxed](../assets/img/haxed.png)
 
 GETTING HAXED
 ---------------
