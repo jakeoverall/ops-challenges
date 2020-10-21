@@ -1,4 +1,6 @@
-Data Encryption
+![haxed](../assets/haxed.png)
+
+GETTING HAXED
 ---------------
 
 **Title:** ops-401d1: Challenge 06
