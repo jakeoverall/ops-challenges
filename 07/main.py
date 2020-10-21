@@ -1,13 +1,15 @@
 import signal
 import network_sweeper
 import port_scanner
+import arp_scan
 
 running = "Y"
 
 switcher = {
     "1": network_sweeper.main,
     "2": port_scanner.main,
-    "3": quit,
+    "3": arp_scan.main,
+    "4": quit,
 }
 
 def main():
@@ -17,7 +19,8 @@ def main():
             print("""
 1. Network Sweep
 2. Port Scan
-3. Quit 
+3. Intense Scan
+4. Quit 
             """)
             option = input("> : ")
             if option in switcher:

@@ -23,7 +23,7 @@ def isClosed(res):
     return res.haslayer(TCP) and res.getlayer(TCP).flags == CLOSED
 
 
-def start_discovery(host, low, high):
+def start_discovery(host, low=20, high=80):
     for dport in range(low, high+1):
         try:
             sport = random.randint(100, 999)
@@ -43,6 +43,7 @@ def start_discovery(host, low, high):
             logs.append(message)
         except Exception as error:
             print("[ERROR]" + str(error))
+    return logs
 
 
 def close_connection(host, sport, dport):
