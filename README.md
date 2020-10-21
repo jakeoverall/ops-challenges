@@ -7,4 +7,4 @@ A collection of challenges and tools solving common ops issues
 - [Data Encryption 1](./04/readme.md)
 - [Data Encryption 2](./05/readme.md)
 - [Ransomware](./06/readme.md)
-- [Network Scanner](./07/readme.md)
+- [Network Scanner](./07/README.md)
