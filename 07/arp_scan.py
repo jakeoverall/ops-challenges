@@ -22,8 +22,6 @@ def start_discovery(network = '192.168.0.0/24', dst = 'ff:ff:ff:ff:ff:ff'):
     clients = scapy.srp(request_broadcast, timeout = 1)[0]
     for host in clients:
         for address in host:
-            address.psrc
-            
             logs.append(f"\n----------START {address.psrc}------------\n")
             logSet = port_scanner.start_discovery(address.psrc, 20, 25)
             for entry in logSet:
