@@ -20,19 +20,19 @@ def connect_ssh(hostname, username, password):
             f"[ATTEMPTING CONNECTION] || {hostname} || {username}:{password}")
         client.connect(hostname=hostname, username=username,
                        password=password, timeout=3)
-    except socket.timeout:
+    except socket.timeout as err:
         colors.print_fail(f"[!] Invalid Host: {hostname}")
-        raise BadHostException(hostname)
+        raise err
     except paramiko.AuthenticationException:
         return None
-    except paramiko.SSHException:
+    except paramiko.SSHException as err:
         timeout_attempts += 1
         if(timeout_attempts < 5):
             colors.print_info(f"Time Locked retrying... {timeout_attempts}/5")
             time.sleep(60)
             return connect_ssh(hostname, username, password)
         else:
-            raise MaxAttempsReachedException
+            raise err
     except Exception as err:
         raise err
 
@@ -53,10 +53,6 @@ def start_brute(host, username):
             client = connect_ssh(host, username, password)
             if(client):
                 return client
-        except BadHostException:
-            raise BadHostException
-        except MaxAttempsReachedException:
-            raise MaxAttempsReachedException
         except Exception as err:
             print(err)
             return
@@ -91,5 +87,5 @@ class MaxAttempsReachedException(BaseException):
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
-    main()
     password_checker.load_passwords()
+    main()

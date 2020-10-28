@@ -2,6 +2,7 @@ import signal
 import complexity
 import password_generator
 import ssh_brute
+import zip_brute
 import sys
 import banners
 import password_checker
@@ -9,23 +10,25 @@ import password_checker
 running = "Y"
 
 switcher = {
-    "1": complexity.main,
-    "2": password_generator.generate_password,
-    "3": ssh_brute.main,
-    "4": quit,
+    "1": ssh_brute.main,
+    "2": zip_brute.main,
+    "3": complexity.main,
+    "4": password_generator.generate_password,
+    "5": quit,
 }
 
 
 def main():
-    banners.clear_screen()
+    banners.brute_banner()
     running = "Y"
     while running == "Y":
         try:
             print("""
-1. Check Password Complexity
-2. Generate Password
-3. SSH BRUTE
-4. Quit 
+1. SSH Brute
+2. Zip Brute
+3. Check Password Complexity
+4. Generate Password
+5. Quit 
             """)
             option = input("> : ")
             if option in switcher:

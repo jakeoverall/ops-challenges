@@ -1261,6 +1261,7 @@ warren
 scotty
 teamomucho
 passw0rd
+passw0rd!
 lavender
 iluvme
 yellow1
