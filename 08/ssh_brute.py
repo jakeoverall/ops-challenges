@@ -64,7 +64,6 @@ def start_client_attacks(client):
 
 
 def main():
-    banners.clear_screen()
     banners.ssh_brute_banner()
     host = input("Host: ") or "192.168.56.104"
     username = input("Username: ") or "hackme"
