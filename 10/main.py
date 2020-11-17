@@ -14,7 +14,7 @@ def main():
     while running == "Y":
         try:
             print("""
-1. Find File
+1. Hash Files
 5. Quit 
             """)
             option = input("> : ")
@@ -39,12 +39,6 @@ def signal_handler(signal, frame):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     main()
-
-
-
-
-
-
 
 
 if __name__ == "__main__":
