@@ -15,5 +15,5 @@ def find_files(filename, path):
 
 def main():
     filename = input("Filename: ")
-    path = input("Path: ") or "."
+    path = input("Path: ") or "./"
     find_files(filename, path)
