@@ -14,8 +14,8 @@ def hash_file(filepath):
     with open(filepath, 'rb') as f:
         for byte_block in iter(lambda: f.read(4096), b''):
             md5_hash.update(byte_block)
-            colors.print_success(f'[+] File: {filepath}')
-            colors.print_header(f'  [~] Hash: {md5_hash.hexdigest()}')
+        colors.print_success(f'[+] File: {filepath}')
+        colors.print_header(f'  [~] Hash: {md5_hash.hexdigest()}')
 
 
 def main():
