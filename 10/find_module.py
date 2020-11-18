@@ -39,7 +39,7 @@ def check_hash(hash):
         else:
             colors.print_warning(f'  [!] {positives} Potential threats found')
     except Exception as err:
-        colors.print_info("  [~] MAX REQUESTS EXCEEDED")
+        colors.print_info("  [!] MAX REQUESTS EXCEEDED")
 
 
 def main():
