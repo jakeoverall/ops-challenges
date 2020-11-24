@@ -1,10 +1,12 @@
 import signal
 import banner_grabber
+import cookie_intercepter
 
 running = "Y"
 
 switcher = {
     "1": banner_grabber.main,
+    "2": cookie_intercepter.main,
     "4": quit,
 }
 
@@ -14,6 +16,7 @@ def main():
         try:
             print("""
 1. Banner Grabbing
+2. Cookies Yum Yum
 4. Quit 
             """)
             option = input("> : ")
